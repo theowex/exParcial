@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva tarea</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h1>CREAR NUEVA TAREA</h1>
+    </div>
+    <br>
+    <div>
+        <a href="{% url 'tareasApp:index' %}">
+            <button>Regresar</button>
+        </a>
+    </div>
+    <br>
+    <div>
+        <form style="display: flex; flex-direction: row; width: 100%; justify-content: center;" method="post" action="{% url 'tareasApp:nuevaTarea' %}">
+            {% csrf_token %}
+            <div style="width: 60%;">
+                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <div style="display: flex; flex-direction: column; width: 45%;">
+                        <label for="">Nombre</label>
+                        <input type="text" name="nombre" required>
+                    </div>
+                    <div style="display: flex; flex-direction: column; width: 45%;">
+                        <label for="">Descripción</label>
+                        <textarea  type="text" name="descripcion" required></textarea>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <div style="display: flex; flex-direction: column; width: 45%;">
+                        <label for="">Fecha de fin</label>
+                        <input type="date" name="fechaFin" required>
+                    </div>
+                    <div style="display: flex; flex-direction: column; width: 45%;">
+                        <label for="">Responsable</label>
+                        <input type="text" name="responsable" required>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Crear tarea">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
